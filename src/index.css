@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0a0a12;
+  --color-foreground: #e8e6f0;
+  --color-primary: #a855f7;
+  --color-primary-glow: #c084fc;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #1e1b2e;
+  --color-secondary-foreground: #c4b5fd;
+  --color-muted: #16132a;
+  --color-muted-foreground: #9f95b8;
+  --color-accent: #7c3aed;
+  --color-accent-foreground: #ffffff;
+  --color-card: #13111f;
+  --color-card-foreground: #e8e6f0;
+  --color-border: #2d2748;
+  --color-ring: #a855f7;
+  --color-destructive: #ef4444;
+
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-background);
+  color: var(--color-foreground);
+  min-height: 100vh;
+}
+
+.glow-primary-lg {
+  box-shadow: 0 0 40px rgba(168, 85, 247, 0.3), 0 0 80px rgba(168, 85, 247, 0.1);
+}
+
+.glow-primary-sm {
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+}
+
+.gradient-galaxy {
+  background: radial-gradient(ellipse at top, rgba(124, 58, 237, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at bottom right, rgba(168, 85, 247, 0.08) 0%, transparent 50%),
+    var(--color-background);
+}
