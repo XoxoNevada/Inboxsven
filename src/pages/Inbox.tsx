@@ -178,7 +178,7 @@ export default function Inbox() {
             {[
               { icon: Eye, label: "Mark as Read" },
               { icon: Flag, label: "Set Priority" },
-              { icon: Tag, label: "Add Tag" },
+              { icon: TagIcon, label: "Add Tag" },
               { icon: Archive, label: "Archive" },
             ].map(({ icon: Icon, label }) => (
               <button key={label} className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors">
