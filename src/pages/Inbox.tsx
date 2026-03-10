@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Instagram, Facebook, Send, Sparkles, Eye, Flag, Tag, Archive, ChevronLeft, PanelRightOpen, PanelRightClose } from "lucide-react";
+import { Instagram, Facebook, Send, Sparkles, Eye, Flag, Tag as TagIcon, Archive, ChevronLeft, PanelRightOpen, PanelRightClose } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { conversations, tagColors, type Conversation, type Tag } from "@/data/mockData";
+import { conversations, tagColors, type Conversation, type Tag as TagType } from "@/data/mockData";
 
 const filters: Array<{ label: string; value: string }> = [
   { label: "All", value: "all" },
