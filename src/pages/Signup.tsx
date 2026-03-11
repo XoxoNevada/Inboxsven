@@ -23,7 +23,7 @@ export default function Signup() {
       options: { emailRedirectTo: window.location.origin },
     });
     if (error) {
-      setError(error.message);
+      setError("Unable to create account. Please check your details or try a different email.");
     } else {
       setSuccess(true);
     }
