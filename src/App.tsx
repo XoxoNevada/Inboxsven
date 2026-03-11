@@ -1,13 +1,15 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
-import AuthGuard from "./components/AuthGuard";
-import DashboardLayout from "./components/DashboardLayout";
 import Index from "./pages/Index";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import Dashboard from "./pages/Dashboard";
-import Inbox from "./pages/Inbox";
-import Integrations from "./pages/Integrations";
+
+const AuthGuard = lazy(() => import("./components/AuthGuard"));
+const DashboardLayout = lazy(() => import("./components/DashboardLayout"));
+const Login = lazy(() => import("./pages/Login"));
+const Signup = lazy(() => import("./pages/Signup"));
+const Dashboard = lazy(() => import("./pages/Dashboard"));
+const Inbox = lazy(() => import("./pages/Inbox"));
+const Integrations = lazy(() => import("./pages/Integrations"));
 
 function App() {
   return (
