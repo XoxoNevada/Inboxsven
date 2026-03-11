@@ -5,6 +5,7 @@ import { useAuth } from "@/contexts/AuthContext";
 
 export default function Signup() {
   const { session } = useAuth();
+  const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
