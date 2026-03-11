@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Shield, Mail, Zap, Star, ArrowRight } from "lucide-react";
-import heroBanner from "@/assets/hero-banner.png";
+const heroBanner = "/hero-banner.png";
 
 const STRIPE_LINK = "https://buy.stripe.com/your-link"; // Replace with actual Stripe link
 
