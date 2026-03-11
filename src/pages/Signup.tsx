@@ -21,7 +21,10 @@ export default function Signup() {
     const { error } = await supabase.auth.signUp({
       email,
       password,
-      options: { emailRedirectTo: window.location.origin },
+      options: {
+        emailRedirectTo: window.location.origin,
+        data: { full_name: fullName.trim() },
+      },
     });
     if (error) {
       setError("Unable to create account. Please check your details or try a different email.");
