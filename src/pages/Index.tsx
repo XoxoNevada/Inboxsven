@@ -39,7 +39,7 @@ const fadeUp = {
 
 export default function Index() {
   return (
-    <div className="gradient-galaxy min-h-screen">
+    <main className="gradient-galaxy min-h-screen">
       {/* Nav */}
       <nav className="flex items-center justify-between px-6 py-5 max-w-6xl mx-auto">
         <span className="font-[var(--font-display)] text-xl font-bold tracking-tight text-foreground">
@@ -204,6 +204,6 @@ export default function Index() {
           </a>
         </div>
       </footer>
-    </div>
+    </main>
   );
 }
