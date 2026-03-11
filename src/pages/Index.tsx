@@ -133,7 +133,7 @@ export default function Index() {
               className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-colors"
             >
               <f.icon className="w-8 h-8 text-primary mb-4" />
-              <h3 className="font-[var(--font-display)] text-lg font-semibold mb-2">{f.title}</h3>
+              <h2 className="font-[var(--font-display)] text-lg font-semibold mb-2">{f.title}</h2>
               <p className="text-muted-foreground text-sm">{f.desc}</p>
             </motion.div>
           ))}
