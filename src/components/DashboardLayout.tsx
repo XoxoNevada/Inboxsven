@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Inbox, Bot, BarChart3, Puzzle, Settings, CreditCard, Menu, X, LayoutDashboard } from "lucide-react";
+import { Inbox, Bot, BarChart3, Puzzle, Settings, CreditCard, Menu, X, LayoutDashboard, LogOut, User } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/contexts/AuthContext";
 
 const navItems = [
   { label: "Dashboard", icon: LayoutDashboard, path: "/dashboard" },
@@ -16,6 +17,11 @@ const navItems = [
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const { user, profile, signOut } = useAuth();
+
+  const displayName = profile?.full_name || user?.email?.split("@")[0] || "User";
+  const email = user?.email ?? "";
+  const avatarUrl = profile?.avatar_url;
 
   return (
     <div className="flex h-screen overflow-hidden bg-background text-foreground">
@@ -61,6 +67,34 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             );
           })}
         </nav>
+
+        {/* Profile section */}
+        <div className="border-t border-border p-3">
+          <div className="flex items-center gap-3 rounded-lg px-3 py-2.5">
+            {avatarUrl ? (
+              <img
+                src={avatarUrl}
+                alt={displayName}
+                className="h-8 w-8 rounded-full object-cover ring-2 ring-primary/30"
+              />
+            ) : (
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/15 text-primary ring-2 ring-primary/30">
+                <User size={16} />
+              </div>
+            )}
+            <div className="flex-1 min-w-0">
+              <p className="truncate text-sm font-medium text-foreground">{displayName}</p>
+              <p className="truncate text-xs text-muted-foreground">{email}</p>
+            </div>
+            <button
+              onClick={signOut}
+              title="Sign out"
+              className="text-muted-foreground hover:text-destructive transition-colors"
+            >
+              <LogOut size={16} />
+            </button>
+          </div>
+        </div>
       </aside>
 
       {/* Main */}
