@@ -5,6 +5,7 @@ import { useAuth } from "@/contexts/AuthContext";
 
 export default function Signup() {
   const { session } = useAuth();
+  const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -20,7 +21,10 @@ export default function Signup() {
     const { error } = await supabase.auth.signUp({
       email,
       password,
-      options: { emailRedirectTo: window.location.origin },
+      options: {
+        emailRedirectTo: window.location.origin,
+        data: { full_name: fullName.trim() },
+      },
     });
     if (error) {
       setError("Unable to create account. Please check your details or try a different email.");
@@ -47,6 +51,15 @@ export default function Signup() {
             {error && (
               <div className="rounded-lg bg-destructive/10 px-4 py-2 text-sm text-destructive">{error}</div>
             )}
+            <input
+              type="text"
+              placeholder="Full name"
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
+              required
+              maxLength={100}
+              className="w-full rounded-lg bg-secondary px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground outline-none focus:ring-1 focus:ring-ring"
+            />
             <input
               type="email"
               placeholder="Email"
