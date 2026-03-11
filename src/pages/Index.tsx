@@ -169,6 +169,7 @@ export default function Index() {
                 </span>
               )}
               <h3 className="font-[var(--font-display)] text-xl font-semibold mb-1">{plan.name}</h3>
+
               <div className="mb-4">
                 <span className="text-3xl font-bold">{plan.price}</span>
                 <span className="text-muted-foreground text-sm">{plan.period}</span>
