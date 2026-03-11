@@ -15,14 +15,16 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/dashboard" element={<AuthGuard><DashboardLayout><Dashboard /></DashboardLayout></AuthGuard>} />
-          <Route path="/inbox" element={<AuthGuard><DashboardLayout><Inbox /></DashboardLayout></AuthGuard>} />
-          <Route path="/integrations" element={<AuthGuard><DashboardLayout><Integrations /></DashboardLayout></AuthGuard>} />
-        </Routes>
+        <Suspense fallback={<div className="min-h-screen bg-background" />}>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/dashboard" element={<AuthGuard><DashboardLayout><Dashboard /></DashboardLayout></AuthGuard>} />
+            <Route path="/inbox" element={<AuthGuard><DashboardLayout><Inbox /></DashboardLayout></AuthGuard>} />
+            <Route path="/integrations" element={<AuthGuard><DashboardLayout><Integrations /></DashboardLayout></AuthGuard>} />
+          </Routes>
+        </Suspense>
       </AuthProvider>
     </BrowserRouter>
   );
