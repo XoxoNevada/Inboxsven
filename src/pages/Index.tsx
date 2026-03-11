@@ -64,9 +64,11 @@ export default function Index() {
           <img
             src={heroBanner}
             alt="Inboxsven premium email management dashboard showcasing AI-powered inbox features"
-            width={1280}
-            height={800}
+            width={896}
+            height={560}
             fetchPriority="high"
+            decoding="async"
+            sizes="(max-width: 896px) 100vw, 896px"
             className="w-full h-auto"
           />
         </motion.div>
