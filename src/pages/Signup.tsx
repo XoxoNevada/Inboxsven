@@ -52,6 +52,15 @@ export default function Signup() {
               <div className="rounded-lg bg-destructive/10 px-4 py-2 text-sm text-destructive">{error}</div>
             )}
             <input
+              type="text"
+              placeholder="Full name"
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
+              required
+              maxLength={100}
+              className="w-full rounded-lg bg-secondary px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground outline-none focus:ring-1 focus:ring-ring"
+            />
+            <input
               type="email"
               placeholder="Email"
               value={email}
