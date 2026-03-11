@@ -10,9 +10,31 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=optional" rel="stylesheet" media="print" onload="this.media='all'" />
     <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=optional" rel="stylesheet" /></noscript>
+    <style>
+      /* Inline critical CSS for FCP – matches the app's dark theme skeleton */
+      body{margin:0;background:#0a0a0f;color:#e2e2e8}
+      .shell-nav{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;max-width:72rem;margin:0 auto}
+      .shell-nav span{font-size:1.25rem;font-weight:700;letter-spacing:-0.025em;color:#e2e2e8}
+      .shell-nav span b{color:#7c5cfc}
+      .shell-hero{max-width:56rem;margin:0 auto;padding:2.5rem 1.5rem 4rem;text-align:center}
+      .shell-hero-img{width:100%;height:auto;border-radius:1rem;aspect-ratio:896/560;background:#14141f}
+      .shell-hero h1{font-size:2.25rem;font-weight:700;margin:.5rem 0 1rem;color:#e2e2e8}
+      .shell-hero h1 b{color:#7c5cfc}
+      .shell-hero p{color:#9494a8;font-size:1.125rem;margin-bottom:2rem}
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Static shell for fast FCP – replaced by React on hydration -->
+      <div style="min-height:100vh">
+        <nav class="shell-nav"><span>Inbox<b>sven</b></span><span style="font-size:.875rem;color:#9494a8">Contact</span></nav>
+        <div class="shell-hero">
+          <img class="shell-hero-img" src="/hero-banner.webp" alt="Inboxsven premium email management dashboard" width="896" height="560" fetchpriority="high" decoding="async" />
+          <h1>Your inbox, <b>reimagined</b></h1>
+          <p>Secure, AI-powered email management that keeps you focused on what matters.</p>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
