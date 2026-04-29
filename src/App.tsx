@@ -16,6 +16,7 @@ const AIReplies = lazy(() => import("./pages/AIReplies"));
 const Analytics = lazy(() => import("./pages/Analytics"));
 const Settings = lazy(() => import("./pages/Settings"));
 const Billing = lazy(() => import("./pages/Billing"));
+const Security = lazy(() => import("./pages/Security"));
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
             <Route path="/integrations" element={<AuthGuard><DashboardLayout><Integrations /></DashboardLayout></AuthGuard>} />
             <Route path="/settings" element={<AuthGuard><DashboardLayout><Settings /></DashboardLayout></AuthGuard>} />
             <Route path="/billing" element={<AuthGuard><DashboardLayout><Billing /></DashboardLayout></AuthGuard>} />
+            <Route path="/security" element={<AuthGuard><DashboardLayout><Security /></DashboardLayout></AuthGuard>} />
           </Routes>
         </Suspense>
       </AuthProvider>

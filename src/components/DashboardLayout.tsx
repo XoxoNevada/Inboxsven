@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Inbox, Bot, BarChart3, Puzzle, Settings, CreditCard, Menu, X, LayoutDashboard, LogOut, User } from "lucide-react";
+import { Inbox, Bot, BarChart3, Puzzle, Settings, CreditCard, Menu, X, LayoutDashboard, LogOut, User, Shield } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/contexts/AuthContext";
 
@@ -12,6 +12,7 @@ const navItems = [
   { label: "Integrations", icon: Puzzle, path: "/integrations" },
   { label: "Settings", icon: Settings, path: "/settings" },
   { label: "Billing", icon: CreditCard, path: "/billing" },
+  { label: "Security", icon: Shield, path: "/security" },
 ];
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
