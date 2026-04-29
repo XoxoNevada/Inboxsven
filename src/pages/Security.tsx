@@ -1,4 +1,4 @@
-import { Shield, Lock, Image as ImageIcon, Database, KeyRound, UserCheck, FileCheck2, AlertTriangle } from "lucide-react";
+import { Shield, Lock, Image as ImageIcon, Database, KeyRound, UserCheck, FileCheck2, AlertTriangle, ChevronDown, HelpCircle } from "lucide-react";
 
 const sections = [
   {
@@ -61,6 +61,26 @@ export default function Security() {
           </div>
         ))}
       </div>
+
+      <section className="space-y-4">
+        <div className="flex items-center gap-3">
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <HelpCircle size={18} />
+          </div>
+          <h2 className="font-[var(--font-display)] text-xl font-bold">Frequently Asked Questions</h2>
+        </div>
+        <div className="rounded-xl border border-border bg-card divide-y divide-border overflow-hidden">
+          {faqs.map(({ q, a }) => (
+            <details key={q} className="group">
+              <summary className="flex cursor-pointer items-center justify-between gap-4 px-5 py-4 text-sm font-medium text-foreground hover:bg-secondary/40 transition-colors list-none [&::-webkit-details-marker]:hidden">
+                <span>{q}</span>
+                <ChevronDown size={16} className="shrink-0 text-muted-foreground transition-transform group-open:rotate-180" />
+              </summary>
+              <div className="px-5 pb-4 text-sm leading-relaxed text-muted-foreground">{a}</div>
+            </details>
+          ))}
+        </div>
+      </section>
 
       <div className="rounded-xl border border-border bg-card p-5 flex gap-3">
         <AlertTriangle size={18} className="shrink-0 text-primary mt-0.5" />
