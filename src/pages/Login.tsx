@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
+import GoogleButton from "@/components/GoogleButton";
 
 export default function Login() {
   const { session } = useAuth();
@@ -27,6 +28,10 @@ export default function Login() {
         <div className="text-center">
           <h1 className="font-[var(--font-display)] text-2xl font-bold text-primary">InboxSven</h1>
           <p className="mt-1 text-sm text-muted-foreground">Sign in to your account</p>
+        </div>
+        <GoogleButton label="Sign in with Google" />
+        <div className="flex items-center gap-3 text-xs text-muted-foreground">
+          <div className="h-px flex-1 bg-border" /> or <div className="h-px flex-1 bg-border" />
         </div>
         <form onSubmit={handleLogin} className="space-y-4">
           {error && (
