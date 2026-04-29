@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
 import Index from "./pages/Index";
 
@@ -12,6 +12,10 @@ const Inbox = lazy(() => import("./pages/Inbox"));
 const Integrations = lazy(() => import("./pages/Integrations"));
 const ForgotPassword = lazy(() => import("./pages/ForgotPassword"));
 const ResetPassword = lazy(() => import("./pages/ResetPassword"));
+const AIReplies = lazy(() => import("./pages/AIReplies"));
+const Analytics = lazy(() => import("./pages/Analytics"));
+const Settings = lazy(() => import("./pages/Settings"));
+const Billing = lazy(() => import("./pages/Billing"));
 
 function App() {
   return (
@@ -26,7 +30,11 @@ function App() {
             <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="/dashboard" element={<AuthGuard><DashboardLayout><Dashboard /></DashboardLayout></AuthGuard>} />
             <Route path="/inbox" element={<AuthGuard><DashboardLayout><Inbox /></DashboardLayout></AuthGuard>} />
+            <Route path="/ai-replies" element={<AuthGuard><DashboardLayout><AIReplies /></DashboardLayout></AuthGuard>} />
+            <Route path="/analytics" element={<AuthGuard><DashboardLayout><Analytics /></DashboardLayout></AuthGuard>} />
             <Route path="/integrations" element={<AuthGuard><DashboardLayout><Integrations /></DashboardLayout></AuthGuard>} />
+            <Route path="/settings" element={<AuthGuard><DashboardLayout><Settings /></DashboardLayout></AuthGuard>} />
+            <Route path="/billing" element={<AuthGuard><DashboardLayout><Billing /></DashboardLayout></AuthGuard>} />
           </Routes>
         </Suspense>
       </AuthProvider>

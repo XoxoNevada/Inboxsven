@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
+import GoogleButton from "@/components/GoogleButton";
 
 export default function Signup() {
   const { session } = useAuth();
@@ -47,6 +48,11 @@ export default function Signup() {
             <p className="text-xs text-muted-foreground">We sent a confirmation link to <span className="text-primary">{email}</span>. Click it to activate your account.</p>
           </div>
         ) : (
+          <>
+          <GoogleButton label="Sign up with Google" />
+          <div className="flex items-center gap-3 text-xs text-muted-foreground">
+            <div className="h-px flex-1 bg-border" /> or <div className="h-px flex-1 bg-border" />
+          </div>
           <form onSubmit={handleSignup} className="space-y-4">
             {error && (
               <div className="rounded-lg bg-destructive/10 px-4 py-2 text-sm text-destructive">{error}</div>
@@ -85,6 +91,7 @@ export default function Signup() {
               {loading ? "Creating account…" : "Sign Up"}
             </button>
           </form>
+          </>
         )}
         <p className="text-center text-xs text-muted-foreground">
           Already have an account?{" "}
